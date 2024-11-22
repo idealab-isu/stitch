@@ -15,7 +15,7 @@ from shutil import copyfile
 import numpy as np
 import trimesh
 import matplotlib.pyplot as plt
-from models.utils import get_root_logger, print_log, compute_cubical_cmplx, new_top_loss1, new_top_loss2, apply_l1_reg, apply_l2_reg
+from models.utils import get_root_logger, print_log
 import math
 import mcubes
 from pyhocon import ConfigFactory
@@ -88,13 +88,11 @@ class Runner:
             # get TDA radius parameter
             self.persistence_radius = self.conf.get_float('train.persistence_radius')
             self.persistence_dim = self.conf.get_int('train.persistence_dim')
-            self.persistence_lambda = self.conf.get_float('train.persistence_lambda')
             self.persistence_lambda_1 = self.conf.get_float('train.persistence_lambda_1')
             self.persistence_lambda_2 = self.conf.get_float('train.persistence_lambda_2')
             self.eikonal_lambda = self.conf.get_float('train.eikonal_lambda')
             print('persistence_radius: ', self.persistence_radius)
             print('persistence_dim: ', self.persistence_dim)
-            print('persistence_lambda: ', self.persistence_lambda)
             print('persistence_lambda_1: ', self.persistence_lambda_1)
             print('persistence_lambda_2: ', self.persistence_lambda_2)
             print('eikonal_lambda: ', self.eikonal_lambda)
